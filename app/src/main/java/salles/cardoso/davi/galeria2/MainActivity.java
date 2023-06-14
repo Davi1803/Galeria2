@@ -6,6 +6,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.Menu;
@@ -67,5 +68,11 @@ public class MainActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+    public void startPhotoActivity(String photoPath) {
+        Intent i = new Intent(MainActivity.this, PhotoActivity.class);
+        //Passando o caminho para a foto
+        i.putExtra("photo_path", photoPath);
+        startActivity(i);
     }
 }
