@@ -35,7 +35,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     static int RESULT_TAKE_PICTURE = 1;
-    static int RESULT_REQUEST_PERMISSION = 2
+    static int RESULT_REQUEST_PERMISSION = 2;
 
     String currentPhotoPath;
 
@@ -107,6 +107,11 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.tbMain);
         //Indicando que a toolbar é uma ActionBar
         setSupportActionBar(toolbar);
+
+        List<String> permissions = new ArrayList<>();
+        permissions.add(Manifest.permission.CAMERA);
+
+        checkForPermissions(permissions);
 
         //Acessando o diretório "pictures"
         File dir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
